@@ -20,6 +20,7 @@ class ArticlesTableSeeder extends Seeder
 
         	$data[$i] = [
         		'user_id' 	    => $faker->randomElement($users_id),
+                'category_id'   => $faker->randomElement($categories_id),
         		'title' 	    => $faker->sentence(3),
         		'content' 	    => $faker->paragraphs(3, true),
                 'created_at'    => now(),
