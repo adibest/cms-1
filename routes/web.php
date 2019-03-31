@@ -26,5 +26,19 @@ Route::delete('/users/{user}', 'UserController@destroy')->name('users.destroy');
 Route::get('/users/{user}', 'UserController@show')->name('users.show');
 
 Route::get('/articles', 'ArticleController@index')->name('articles.index');
+Route::get('/articles/create', 'ArticleController@create')->name('articles.create');
+Route::post('/articles', 'ArticleController@store')->name('articles.store');
+Route::get('/articles/{user}/edit', 'ArticleController@edit')->name('articles.edit');
+Route::put('/articles/{user}', 'ArticleController@update')->name('articles.update');
+Route::delete('/articles/{user}', 'ArticleController@destroy')->name('articles.destroy');
+Route::get('/articles/{user}', 'ArticleController@show')->name('articles.show');
+
+Route::get('/categories', 'CategoryController@index')->name('categories.index');
+Route::get('/categories/create', 'CategoryController@create')->name('categories.create');
+Route::post('/categories', 'CategoryController@store')->name('categories.store');
+Route::get('/categories/{user}/edit', 'CategoryController@edit')->name('categories.edit');
+Route::put('/categories/{user}', 'CategoryController@update')->name('categories.update');
+Route::delete('/categories/{user}', 'CategoryController@destroy')->name('categories.destroy');
+Route::get('/categories/{user}', 'CategoryController@show')->name('categories.show');
 
 

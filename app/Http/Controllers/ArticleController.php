@@ -13,4 +13,46 @@ class ArticleController extends Controller
 
     	return view('articles.index', compact('articles'));
     }
+
+    public function create()
+	{
+		return view('articles.create');
+	}
+
+	public function store(Request $request)
+	{
+		Article::create($request->all());
+
+		return redirect('/articles');
+	}
+
+	public function show($id)
+	{
+		//
+	}
+
+	public function edit($id)
+	{
+		$article = Article::find($id);
+
+		return view('articles.edit', compact('article'));
+	}
+
+	public function update(Request $request, $id)
+	{
+		$article = Article::find($id);
+
+		$article->update($request->all());
+
+		return redirect('/articles');
+	}
+
+	public function destroy($id)
+	{
+		$article = Article::find($id);
+
+		$article->delete();
+
+		return redirect('/articles');
+	}
 }

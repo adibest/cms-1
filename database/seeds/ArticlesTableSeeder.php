@@ -19,9 +19,11 @@ class ArticlesTableSeeder extends Seeder
         for ($i=0; $i < 10; $i++) { 
 
         	$data[$i] = [
-        		'user_id' 	=> $faker->randomElement($users_id),
-        		'title' 	=> $faker->sentence(3),
-        		'content' 	=> $faker->paragraphs(3, true),
+        		'user_id' 	    => $faker->randomElement($users_id),
+        		'title' 	    => $faker->sentence(3),
+        		'content' 	    => $faker->paragraphs(3, true),
+                'created_at'    => now(),
+                'updated_at'    => now(),
         	];
         }
 

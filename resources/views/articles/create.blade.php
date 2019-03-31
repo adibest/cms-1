@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Create User</title>
+	<title>Create Article</title>
 </head>
 <body>
 
-	<h3>Create User</h3>
+	<h3>Create Article</h3>
 
-	<form method="post" action="{{ route('users.store') }}">
+	<form method="post" action="{{ route('articles.store') }}">
 
 		@csrf
 
