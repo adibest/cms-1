@@ -61,7 +61,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -71,9 +73,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id)//method injection
     {
-        //
+        $user = User::find($id);
+
+        $user->update($request->all());//sudah dibuat di model
+
+        return redirect('/users');
     }
 
     /**
@@ -84,6 +90,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        $user->delete();
+
+        return redirect('/users');
     }
 }

@@ -14,6 +14,7 @@
 			<th>Name</th>
 			<th>Email</th>
 			<th>Created at</th>
+			<th>Number of Articles</th>
 			<th>Action</th>
 		</tr>
 		
@@ -22,7 +23,15 @@
 			<td>{{ $user->name }}</td>
 			<td>{{ $user->email }}</td>
 			<td>{{ $user->created_at }}</td>
-			<td></td>
+			<td>{{ $user->articles()->count() }}</td>
+			<td>
+				<form method="post" action="{{ route('users.destroy', $user->id) }}">
+					<a href="{{ route('users.edit', $user->id) }}">Edit</a>
+					@csrf
+					@method('DELETE')
+					<button type="submit">Delete</button>
+				</form>
+			</td>
 		</tr>
 		@endforeach
 
