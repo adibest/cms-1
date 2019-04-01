@@ -15,6 +15,7 @@
 			<th>Title</th>
 			<th>Category</th>
 			<th>Created at</th>
+			<th>Action</th>
 		</tr>
 		
 		@foreach($articles as $article)
@@ -23,6 +24,14 @@
 			<td>{{ $article->title }}</td>
 			<td>{{ $article->category->name }}</td>
 			<td>{{ $article->created_at }}</td>
+			<td>
+				<form method="post" action="{{ route('articles.destroy', $article->id) }}">
+					<a href="{{ route('articles.edit', $article->id) }}">Edit</a>
+					@csrf
+					@method('DELETE')
+					<button type="submit">Delete</button>
+				</form>
+			</td>
 		</tr>
 		@endforeach
 

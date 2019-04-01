@@ -4,20 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Article;
+use App\Model\Category;
+use App\Model\User;
 
 class ArticleController extends Controller
 {
     public function index()
     {
-    	$articles = Article::all();
+    	$articles = Article::orderBy('created_at', 'desc')->get();
 
     	return view('articles.index', compact('articles'));
     }
 
     public function create()
 	{
-		$articles = Article::all(['id', 'user_id', 'category_id']);
-    	return view('articles.create', compact('articles',$articles));
+		$articles = Article::all();
+
+    	return view('articles.create', compact('articles'));
 		// return view('articles.create');
 	}
 
@@ -36,8 +39,11 @@ class ArticleController extends Controller
 	public function edit($id)
 	{
 		$article = Article::find($id);
+		$articles = Article::all();
+		$categories = Category::all();
+		$users = User::all();
 
-		return view('articles.edit', compact('article'));
+		return view('articles.edit', compact('article','articles','categories','users'));
 	}
 
 	public function update(Request $request, $id)

@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit User</title>
+	<title>Edit Article</title>
 </head>
 <body>
 
-	<h3>Edit User</h3>
+	<h3>Edit Article</h3>
 
-	<form method="post" action="{{ route('users.update', $user->id) }}">
+	<form method="post" action="{{ route('articles.update', $article->id) }}">
 
 		@csrf
 		@method('PUT')
 
 		<label>
-			nama
-			<input type="text" name="name" value="{{ $user->name }}">
+			author
+			<select name="user_id">
+				<option value="{{ $article->user_id }}">{{ $article->user->name }}</option>
+					@foreach ($users as $user)
+						<option value="{{ $user->id }}">{{ $user->name }}</option>
+					@endforeach
+			</select>
 		</label>
 
 		<br>
 
 		<label>
-			email
-			<input type="email" name="email" value="{{ $user->email }}">
+			title
+			<input type="text" name="title" value="{{ $article->title }}">
 		</label>
 
 		<br>
 
 		<label>
-			password
-			<input type="password" name="password" value="{{ $user->password }}">
+			category
+			<select name="category_id">
+				<option value="{{ $article->category_id }}">{{ $article->category->name }}</option>
+					@foreach ($categories as $category)
+						<option value="{{ $category->id }}">{{ $category->name }}</option>
+					@endforeach
+			</select>
+		</label>
+
+		<br>
+
+		<label>
+			content
+			<textarea type="text" name="content">{{ $article->content }}</textarea>
 		</label>
 
 		<br>
