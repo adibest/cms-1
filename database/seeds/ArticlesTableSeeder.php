@@ -13,8 +13,9 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Factory::create('id_ID');
-        $users_id = DB::table('users')->pluck('id');
+        $faker          = Factory::create('id_ID');
+        $categories_id  = DB::table('categories')->pluck('id');
+        $users_id       = DB::table('users')->pluck('id');
 
         for ($i=0; $i < 10; $i++) { 
 
@@ -32,3 +33,5 @@ class ArticlesTableSeeder extends Seeder
         DB::table('articles')->insert($data);
     }
 }
+
+

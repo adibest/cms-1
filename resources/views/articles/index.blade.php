@@ -13,6 +13,7 @@
 		<tr>
 			<th>Author</th>
 			<th>Title</th>
+			<th>Category</th>
 			<th>Created at</th>
 		</tr>
 		
@@ -20,6 +21,7 @@
 		<tr>
 			<td>{{ $article->user->name }}</td>
 			<td>{{ $article->title }}</td>
+			<td>{{ $article->category->name }}</td>
 			<td>{{ $article->created_at }}</td>
 		</tr>
 		@endforeach

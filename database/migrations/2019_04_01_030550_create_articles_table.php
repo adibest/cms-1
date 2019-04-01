@@ -14,6 +14,7 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('category_id');
@@ -24,7 +25,7 @@ class CreateArticlesTable extends Migration
 
         Schema::table('articles', function(Blueprint $table)
         {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->unique()->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
