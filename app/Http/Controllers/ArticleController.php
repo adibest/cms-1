@@ -16,7 +16,9 @@ class ArticleController extends Controller
 
     public function create()
 	{
-		return view('articles.create');
+		$articles = Article::all(['id', 'user_id', 'category_id']);
+    	return view('articles.create', compact('articles',$articles));
+		// return view('articles.create');
 	}
 
 	public function store(Request $request)

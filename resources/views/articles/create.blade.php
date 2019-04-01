@@ -12,22 +12,37 @@
 		@csrf
 
 		<label>
-			nama
-			<input type="text" name="name">
+			author
+			<select name="user_id">
+				@foreach($articles as $article)
+				<option value="{{ $article->user_id }}">{{ $article->user->name }}</option>
+				@endforeach
+			</select>
 		</label>
 
 		<br>
 
 		<label>
-			email
-			<input type="email" name="email">
+			title
+			<input type="text" name="title">
 		</label>
 
 		<br>
 
 		<label>
-			password
-			<input type="password" name="password">
+			category
+			<select name="category_id">
+				@foreach($articles as $article)
+					<option value="{{ $article->category_id }}">{{ $article->category->name }}</option>
+				@endforeach
+			</select>
+		</label>
+
+		<br>
+
+		<label>
+			content
+			<textarea type="text" name="content"></textarea>
 		</label>
 
 		<br>

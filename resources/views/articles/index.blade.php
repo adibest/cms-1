@@ -6,7 +6,7 @@
 <body>
 
 	<h3>Articles List</h3>
-	{{-- <h5><a href="{{ route('users.create') }}">Create</a></h5> --}}
+	<h5><a href="{{ route('articles.create') }}">Create</a></h5>
 
 	<table>
 
