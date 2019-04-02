@@ -27,12 +27,20 @@
 			<input type="email" name="email">
 		</label>
 
+		@if($errors->has('email'))
+			<span>{{ $errors->first('email') }}</span>
+		@endif
+
 		<br>
 
 		<label>
 			password
 			<input type="password" name="password">
 		</label>
+
+		@if($errors->has('password'))
+			<span>{{ $errors->first('password') }}</span>
+		@endif
 
 		<br>
 

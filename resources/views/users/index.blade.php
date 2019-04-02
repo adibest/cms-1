@@ -5,6 +5,10 @@
 </head>
 <body>
 
+	{{ auth()->check() }}
+
+	<a href="{{ route('auth.logout') }}">logout</a>
+
 	<h3>Users List</h3>
 	<h5><a href="{{ route('users.create') }}">Create</a></h5>
 
