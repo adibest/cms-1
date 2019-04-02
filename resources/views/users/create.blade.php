@@ -16,6 +16,10 @@
 			<input type="text" name="name">
 		</label>
 
+		@if($errors->has('name'))
+			<span>{{ $errors->first('name') }}</span>
+		@endif
+
 		<br>
 
 		<label>
